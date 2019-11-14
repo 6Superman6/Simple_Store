@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Work_controller" />
+        <module name="Work_mapper" />
+        <module name="Work_model" />
+        <module name="Work_service" />
+        <module name="Work_utils" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ssm_Work" target="1.8" />
+      <module name="Work_controller" target="1.8" />
+      <module name="Work_mapper" target="1.8" />
+      <module name="Work_model" target="1.8" />
+      <module name="Work_service" target="1.8" />
+      <module name="Work_utils" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

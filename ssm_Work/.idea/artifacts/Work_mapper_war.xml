@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Work_mapper:war">
+    <output-path>$PROJECT_DIR$/Work_mapper/target</output-path>
+    <root id="archive" name="Work_mapper.war">
+      <element id="artifact" artifact-name="Work_mapper:war exploded" />
+    </root>
+  </artifact>
+</component>

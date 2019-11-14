@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Work_controller/Work_controller.iml" filepath="$PROJECT_DIR$/Work_controller/Work_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Work_mapper/Work_mapper.iml" filepath="$PROJECT_DIR$/Work_mapper/Work_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Work_model/Work_model.iml" filepath="$PROJECT_DIR$/Work_model/Work_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Work_service/Work_service.iml" filepath="$PROJECT_DIR$/Work_service/Work_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Work_utils/Work_utils.iml" filepath="$PROJECT_DIR$/Work_utils/Work_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm_Work.iml" filepath="$PROJECT_DIR$/ssm_Work.iml" />
+    </modules>
+  </component>
+</project>

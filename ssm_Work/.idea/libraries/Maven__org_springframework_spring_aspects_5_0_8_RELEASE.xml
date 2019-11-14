@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework:spring-aspects:5.0.8.RELEASE">
+    <CLASSES>
+      <root url="jar://F:/IDEA/apache-maven-3.3.9-bin/apache-maven-3.3.9/conf/repository/org/springframework/spring-aspects/5.0.8.RELEASE/spring-aspects-5.0.8.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/IDEA/apache-maven-3.3.9-bin/apache-maven-3.3.9/conf/repository/org/springframework/spring-aspects/5.0.8.RELEASE/spring-aspects-5.0.8.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/IDEA/apache-maven-3.3.9-bin/apache-maven-3.3.9/conf/repository/org/springframework/spring-aspects/5.0.8.RELEASE/spring-aspects-5.0.8.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
