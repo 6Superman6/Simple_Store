@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1><a href="/user/root">点击进入商城网站</a></h1>
+<h1><a href="<%=request.getContextPath()%>/user/root">点击进入商城网站</a></h1>
 </body>
 </html>
