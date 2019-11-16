@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Work_controller" />
+          <element id="module-output" name="store" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="Work_utils-1.0-SNAPSHOT.jar">
@@ -63,9 +63,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/Work_controller/target/Work_controller/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/store/target/Work_controller/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Work_controller/web/Web" />
+      <element id="javaee-facet-resources" facet="store/web/Web" />
     </root>
   </artifact>
 </component>

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Work_controller" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Work_controller/src/main/webapp/html/test.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Work_mapper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Work_model" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Work_service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Work_utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/store" charset="UTF-8" />
   </component>
 </project>
