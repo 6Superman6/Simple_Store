@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启注解扫描，只扫描Controller注解-->
+    <context:component-scan base-package="demo">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 配置Freemarker属性文件路径 -->
+    <bean id="freemarkerConfiguration"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:conf/freemarker.properties" />
+    </bean>
+    <!--=======================配置视图解析器，方便页面返回==================================-->
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/template/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <!--<prop key="locale">zh_CN</prop>-->
+                <!-- 解决前端报错 -->
+                <prop key="classic_compatible">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--二进制文件处理-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+            <list>
+                <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                    <property name="cache" value="true"/>
+                    <property name="prefix" value=""/>
+                    <property name="suffix" value=".ftl"/>
+                    <property name="contentType" value="text/html; charset=utf-8"/>
+                </bean>
+            </list>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+            </list>
+        </property>
+        <property name="order" value="1" />
+    </bean>
+
+    <!--配置的视图解析器对象-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="2" />
+    </bean>
+
+
+    <!--==========================两个标准配置================================-->
+    <!--将springmvc不能处理的请求（静态资源）交给tomcat-->
+    <mvc:default-servlet-handler/>
+
+    <!--&lt;!&ndash; 这是springmvc提供的文件解析组件,对上传文件的请求解析等工作进行了封装 &ndash;&gt;-->
+    <!--&lt;!&ndash; 在测试传统方式上传时,要将该bean注释掉,否则会出现歧义 &ndash;&gt;-->
+    <!--&lt;!&ndash; 配置文件解析器对象，要求id名称必须是multipartResolver &ndash;&gt;-->
+    <!--&lt;!&ndash; 配置上传文件 &ndash;&gt;-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="maxUploadSize">-->
+            <!--<value>10485760</value>-->
+        <!--</property>-->
+        <!--<property name="defaultEncoding">-->
+            <!--<value>UTF-8</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;/文件解析器end&ndash;&gt;-->
+
+    <!--&lt;!&ndash;过滤静态资源&ndash;&gt;-->
+    <!--<mvc:resources location="/css/" mapping="/css/**"/>-->
+    <!--<mvc:resources location="/images/" mapping="/images/**"/>-->
+    <!--<mvc:resources location="/js/" mapping="/js/**"/>-->
+
+    <!--&lt;!&ndash;拦截器&ndash;&gt;-->
+    <!--&lt;!&ndash;配置拦截器&ndash;&gt;-->
+    <!--<mvc:interceptors>-->
+    <!--&lt;!&ndash;配置第一个拦截器&ndash;&gt;-->
+    <!--<mvc:interceptor>-->
+    <!--&lt;!&ndash;要拦截的具体的方法&ndash;&gt;-->
+    <!--<mvc:mapping path="/record/inter"/>-->
+    <!--&lt;!&ndash;不要拦截的方法&ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:exclude-mapping path="/user/regist" />         &lt;!&ndash;不拦截注册&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:exclude-mapping path="/user/login" />         &lt;!&ndash;不拦截登录&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;配置拦截器对象&ndash;&gt;-->
+    <!--<bean class="demo.utils.LoginInterceptor"></bean>-->
+    <!--</mvc:interceptor>-->
+    <!--&lt;!&ndash;&lt;!&ndash;配置第二个拦截器&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:interceptor>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;要拦截的具体的方法&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<mvc:mapping path="/**"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;不要拦截的方法&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<mvc:exclude-mapping path="" />&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;配置拦截器对象&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean class="Demo.interceptor.MyInterceptor2"></bean>&ndash;&gt;-->
+    <!--&lt;!&ndash;</mvc:interceptor>&ndash;&gt;-->
+    <!--</mvc:interceptors>-->
+    <!--&lt;!&ndash;拦截器&ndash;&gt;-->
+
+    <!--开启SpringMVC注解的支持-->
+    <mvc:annotation-driven/>
+
+    <!--配置自定义类型转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="demo.utils.StringToDateConverter2"/>
+                <bean class="demo.utils.StringToDateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+
+    <!-- 开启SpringMVC框架注解的支持 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+</beans>
